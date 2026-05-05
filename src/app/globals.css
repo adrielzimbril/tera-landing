@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: #FAFAFA;
+    --foreground: #111111;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  body::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer utilities {
+  .vertical-text {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+  }
+
+  /* GSAP Masked Reveal Setup */
+  .reveal-text-container {
+    line-height: 1.1; 
+  }
+  
+  .word-mask {
+    display: inline-flex;
+    overflow: hidden;
+    vertical-align: top;
+    padding-bottom: 0.1em;
+    margin-right: 0.25em;
+  }
+  
+  .word-mask > span {
+    display: inline-block;
+    will-change: transform;
+  }
+
+  /* Blueprint Dots */
+  .dot {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: #111;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+  }
+
+  /* Premium Border Gradient */
+  .border-gradient {
+    position: relative;
+    border-radius: 1.5rem; /* rounded-2xl */
+    background: linear-gradient(180deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.01) 100%);
+    padding: 1px;
+  }
+  
+  .border-gradient > div {
+    background: #FAFAFA;
+    border-radius: calc(1.5rem - 1px);
+    height: 100%;
+  }
+
+  /* Smooth Image Tilt */
+  .tilt-wrapper {
+    perspective: 1000px;
+  }
+  
+  .tilt-inner {
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+}
